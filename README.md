@@ -8,7 +8,7 @@ I built a multi-section landing page which is built with HTML, CSS, and Javascri
 
 # Objective
 
-The main purpose of this project was to practice DOM manipulation with JavaScript.
+The main purpose of this project was to practice DOM manipulation with JavaScript by building a multi-section landing page, with a dynamically updating navigational menu based on the amount of content that is added to the page.
 
 # Features
 

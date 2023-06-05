@@ -38,8 +38,6 @@ const menuNavMobile = document.getElementById("navbar__menu__mobile");
  *
  */
 
-// Scroll to anchor ID using scrollTO event
-
 /**
  * End Main Functions
  * Begin Events
@@ -71,7 +69,6 @@ window.onload = () => {
   menuNavMobile.appendChild(NavListClone);
 };
 
-// Scroll to section on link click
 // Set sections as active
 
 window.addEventListener("scroll", () => {

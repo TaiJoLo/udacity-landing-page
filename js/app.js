@@ -22,6 +22,9 @@
  * Define Global Variables
  *
  */
+const NavList = document.getElementById("navbar__list");
+const sections = document.getElementsByClassName("sections");
+const menuNavMobile = document.getElementById("navbar__menu__mobile");
 
 /**
  * End Global Variables
@@ -35,10 +38,6 @@
  *
  */
 
-// build the nav
-
-// Add class 'active' to section when near top of viewport
-
 // Scroll to anchor ID using scrollTO event
 
 /**
@@ -47,8 +46,57 @@
  *
  */
 
-// Build menu
+// Build Nav Menu
+
+window.onload = () => {
+  for (const section of sections) {
+    const list = document.createElement("li");
+    const link = document.createElement("a");
+    let hrefLink = "#" + section.id;
+
+    if (section.id === "hero") {
+      list.classList.add("active");
+    }
+
+    link.setAttribute("href", hrefLink);
+    link.classList.add("menu__link");
+    list.classList.add(section.id);
+    link.innerText = section.dataset.nav;
+    list.appendChild(link);
+    NavList.appendChild(list);
+  }
+  //  Menu Mobile
+  const NavListClone = NavList.cloneNode(true);
+  NavListClone.setAttribute("id", "navbar__list__mobile");
+  menuNavMobile.appendChild(NavListClone);
+};
 
 // Scroll to section on link click
-
 // Set sections as active
+
+window.addEventListener("scroll", () => {
+  for (const section of sections) {
+    if (section.getBoundingClientRect().top < 100) {
+      activeClass(section.attributes.id.value);
+    }
+  }
+});
+
+const activeClass = (id) => {
+  const navbarList = document.querySelectorAll("#navbar__list li");
+  const navbarListMobile = document.querySelectorAll(
+    "#navbar__list__mobile li"
+  );
+  navbarList.forEach((link) => {
+    link.classList.remove("active-section");
+    if (link.classList.contains(id)) {
+      link.classList.add("active-section");
+    }
+  });
+  navbarListMobile.forEach((link) => {
+    link.classList.remove("active");
+    if (link.classList.contains(id)) {
+      link.classList.add("active");
+    }
+  });
+};

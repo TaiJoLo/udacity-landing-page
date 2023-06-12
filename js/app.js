@@ -85,9 +85,9 @@ const activeClass = (id) => {
     "#navbar__list__mobile li"
   );
   navbarList.forEach((link) => {
-    link.classList.remove("active-section");
+    link.classList.remove("active");
     if (link.classList.contains(id)) {
-      link.classList.add("active-section");
+      link.classList.add("active");
     }
   });
   navbarListMobile.forEach((link) => {
